@@ -49,6 +49,6 @@ app.get("/hotels", (req, res) => {
   res.send(hotels);
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("Yeah! Your backend server is running on port 3000");
 });
