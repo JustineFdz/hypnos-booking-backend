@@ -13,8 +13,40 @@ const db = mysql.createConnection({
   database: "employeeSystem",
 });
 
-app.get("/", (req, res) => {
-  res.send("This message is sent from hypnos backend");
+app.get("/hotels", (req, res) => {
+  const hotels = [
+    {
+        hotelTitle:"La Bergerie",
+        roomsTitle:[
+            "La diamant",
+            "La rubis",
+            "La saphir",
+            "L'améthyste",
+            "L'eben"
+        ]
+    },
+    {
+        hotelTitle:"Le Chabichou",
+        roomsTitle:[
+            "La diamant1",
+            "La rubis1",
+            "La saphir1",
+            "L'améthyste1",
+            "L'eben1"
+        ]
+    },
+    {
+        hotelTitle:"L'Altapure'",
+        roomsTitle:[
+            "La diamant2",
+            "La rubis2",
+            "La saphir2",
+            "L'améthyste2",
+            "L'eben2"
+        ]
+    },
+]
+  res.send(hotels);
 });
 
 app.listen(process.env.PORT || 3000, () => {
