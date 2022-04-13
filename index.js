@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
-// const env = require("./.env")
+const mysql = require("mysql2");
 const cors = require("cors");
 
 app.use(cors());
@@ -13,8 +12,14 @@ const db = mysql.createConnection({
   password: "7705de63",
   database: "heroku_c88c9286219a8f8",
 });
+// const db = mysql.createConnection({
+//   user: "root",
+//   host: "localhost",
+//   password: "Ju1721010690",
+//   database: "Hypnos",
+// });
 
-app.post('/register', (req, res) => {
+app.post('/signup', (req, res) => {
 
   const name = req.body.name
   const surname = req.body.surname
@@ -30,7 +35,7 @@ app.post('/register', (req, res) => {
   );
 });
 
-app.post('/login', (req,res) => {
+app.post('/signin', (req,res) => {
 
   const mail = req.body.mail
   const password = req.body.password
