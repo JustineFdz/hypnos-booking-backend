@@ -19,45 +19,45 @@ const db = mysql.createConnection({
 //   database: "Hypnos",
 // });
 
-app.post('/signup', (req, res) => {
+// app.post('/signup', (req, res) => {
 
-  const name = req.body.name
-  const surname = req.body.surname
-  const mail = req.body.mail
-  const password = req.body.password
+//   const name = req.body.name
+//   const surname = req.body.surname
+//   const mail = req.body.mail
+//   const password = req.body.password
   
-  db.query(
-    "INSERT INTO users (name, surname, mail, password) VALUES (?,?,?,?)",
-    [name, surname, mail, password],
-    (err, result)=>{
-      console.log(err);
-    }
-  );
-});
+//   db.query(
+//     "INSERT INTO users (name, surname, mail, password) VALUES (?,?,?,?)",
+//     [name, surname, mail, password],
+//     (err, result)=>{
+//       console.log(err);
+//     }
+//   );
+// });
 
-app.post('/signin', (req,res) => {
+// app.post('/signin', (req,res) => {
 
-  const mail = req.body.mail
-  const password = req.body.password
+//   const mail = req.body.mail
+//   const password = req.body.password
   
-  db.query(
-    "SELECT * FROM users WHERE mail = ? AND password = ?",
-    [mail, password],
-    (err, result)=>{
+//   db.query(
+//     "SELECT * FROM users WHERE mail = ? AND password = ?",
+//     [mail, password],
+//     (err, result)=>{
 
-      if(err){
-        res.send({err:err});
-      }  
-        if (result.length>0){
-          res.send(result)
-        }else{
-            res.send({message:"Mauvaise combinaison utilisateur/mdp"})
-        }
+//       if(err){
+//         res.send({err:err});
+//       }  
+//         if (result.length>0){
+//           res.send(result)
+//         }else{
+//             res.send({message:"Mauvaise combinaison utilisateur/mdp"})
+//         }
     
-  }
-  );
+//   }
+//   );
 
-})
+// })
 
 
 // app.get("/hotels", (req, res) => {
@@ -98,6 +98,6 @@ app.post('/signin', (req,res) => {
 
 
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Yeah! Your backend server is running on port 3000");
+app.listen(process.env.PORT || 3001, () => {
+  console.log("Yeah! Your backend server is running on port 3001");
 });
