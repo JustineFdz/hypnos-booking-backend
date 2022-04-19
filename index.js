@@ -20,6 +20,9 @@ app.use("/auth", usersRouter);
 const hotelsRouter = require('./routes/Hotels')
 app.use("/hotels", hotelsRouter);
 
+const roomsRouter = require('./routes/Rooms')
+app.use("/rooms", roomsRouter);
+
 
 db.sequelize.sync().then(() => {
   app.listen( 3001, () => {

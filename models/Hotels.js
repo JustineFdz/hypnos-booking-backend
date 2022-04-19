@@ -27,10 +27,13 @@ module.exports= (sequelize,DataTypes) => {
     },
   });
 
-  // Hotels.associate = (models) => {
-  //   Hotels.hasMany(models.Rooms, {
-  //     onDelete:"cascade",
-  //   })
-  // }
+  Hotels.associate = (models) => {
+    Hotels.hasMany(models.Rooms, {
+      onDelete:"cascade",
+    })
+  }
+
+  
+  
   return Hotels;
 }
