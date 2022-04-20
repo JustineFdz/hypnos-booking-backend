@@ -21,13 +21,14 @@ router.post("/", async (req,res) => {
 router.post('/login', async(req,res) =>{
   const {mail,password} = req.body;
   const user=await Users.findOne({ where : {mail : mail }});
-
+  const { name, surname} = user;
   if (user)
   bcrypt.compare(password, user.password).then((match) => {
     if (!match)
       res.json({ error: 'Wrong Username and Password combination' });
-      const accessToken = sign({mail: user.mail, id:user.id},"importantsecret");
-    res.json(accessToken);
+    const accessToken = sign({ mail: user.mail, id: user.id }, "importantsecret");
+    
+    res.json({ accessToken, name, surname });
   });
 
 });

@@ -6,7 +6,7 @@ const validateToken = (req, res, next) =>{
   if (!accessToken) return res.json({error:"Utilisateur non connecté!"});
 
   try{
-    const validToken =verify(accessToken, "importantsecret");
+    const validToken = verify(accessToken, "importantsecret");
 
     if (validToken) {
       return next();
