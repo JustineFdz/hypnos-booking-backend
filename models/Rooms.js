@@ -21,6 +21,7 @@ module.exports= (sequelize,DataTypes) => {
       type: DataTypes.STRING,
       allowNull : false,
     },
+    
   });
 
   Rooms.associate = (models) => {
