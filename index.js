@@ -6,22 +6,18 @@ require("dotenv").config();
 
 app.use(express.json());
 
-// Add headers before the routes are defined
-app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.setHeader('Access-Control-Allow-Origin', 'https://hypnos-app.herokuapp.com');
-
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Pass to next layer of middleware
-    next();
+app.use(function(req, res, next) {
+  var allowedOrigins = ['https://hypnos-app.herokuapp.com', 'http://localhost:3000'];
+  var Origin = req.headers.Origin;
+  if(allowedOrigins.indexOf(Origin) > -1){
+       res.setHeader('Access-Control-Allow-Origin', Origin);
+  }
+  res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', true);
+  return next();
 });
-app.use(cors({
-    origin: ['https://hypnos-app.herokuapp.com', 'http://localhost:3000']
-}));
 
 
 const db = require("./models");
