@@ -10,12 +10,8 @@ app.use(express.json());
 app.use(cors({
     origin: ['https://hypnos-app.herokuapp.com', 'http://localhost:3000']
 }));
-//retest il faut d'abord redeployer le backend
-// et il faudra mettre ca dans ton rapport 
-// en gros t'autorise que ton localhost et ton frontend a acceder a ton backend 
-// c'est de la securite 
-// et n'oublie pas de supprimer ce commentaire lol 
-// redeploie ton backend dans heroku et retest
+
+
 const db = require("./models");
 
 //Routers
