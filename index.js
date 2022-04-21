@@ -5,8 +5,12 @@ require("dotenv").config();
 
 
 app.use(express.json());
-app.use(cors());
 
+const cors = require('cors');
+app.use(cors({
+    origin: ['https://hypnos-app.herokuapp.com', 'http://localhost:3000']
+}));
+//retest
 const db = require("./models");
 
 //Routers
