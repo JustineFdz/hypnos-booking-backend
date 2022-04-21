@@ -15,7 +15,7 @@ router.get('/user/:userId', async (req, res) => {
   const room = await Rooms.findByPk(roomId);
   const hotelId = room.HotelId;
   const hotel = await Rooms.findByPk(hotelId);
-  
+
   res.json({ ...booking, roomName: room.title, hotelName: hotel.name });
 });
 
