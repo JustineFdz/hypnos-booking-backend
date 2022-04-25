@@ -10,13 +10,8 @@ router.get('/:roomId', async (req, res) => {
 
 router.get('/user/:userId', async (req, res) => {
   const userId = req.params.userId
-  const booking = await Bookings.findAll({ where: { UserId: userId } });
-  const roomId = booking.roomId;
-  const room = await Rooms.findByPk(roomId);
-  const hotelId = room.HotelId;
-  const hotel = await Rooms.findByPk(hotelId);
-
-  res.json({ ...booking, roomName: room.title, hotelName: hotel.name });
+  const bookings = await Bookings.findAll({ where: { UserId: userId } });
+  res.json(bookings);
 });
 
 router.post("/hotel/:hotelId/room/:roomId", async (req, res) => {
@@ -26,7 +21,7 @@ router.post("/hotel/:hotelId/room/:roomId", async (req, res) => {
   const booking = await Bookings.create({ checkIn, checkOut, RoomId: roomId, UserId: userId });
 
   
-  res.json(booking, roomName, hotelName)
+  res.json(booking)
 
 })
 
