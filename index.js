@@ -6,20 +6,7 @@ require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
-// app.use(cors({
 
-//   origin:'https://hypnos-app.herokuapp.com/', 
-// credentials:true,            //access-control-allow-credentials:true
-// optionSuccessStatus:200
-// }));
-
-
-// app.use(function(req, res, next) {
-//     res.setHeader("Access-Control-Allow-Origin", '*');
-//     res.setHeader("Access-Control-Allow-Credentials", true);
-//     res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-//     res.setHeader("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-// });
 
 const db = require("./models");
 
@@ -37,6 +24,7 @@ const bookingsRouter = require('./routes/Bookings')
 app.use("/bookings", bookingsRouter);
 
 
+
 db.sequelize
 .sync()
 .then(() => {
@@ -48,4 +36,4 @@ db.sequelize
 console.log(err);
 });
 
-// 
+

@@ -1,3 +1,5 @@
+//Rooms.js 
+
 module.exports= (sequelize,DataTypes) => {
 
   const Rooms = sequelize.define("Rooms",{
