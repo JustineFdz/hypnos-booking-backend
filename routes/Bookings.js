@@ -22,17 +22,17 @@ router.post("/hotel/:hotelId/room/:roomId", async (req, res) => {
   //
 
   
-  res.json(booking)
+  res.json(booking) 
 
 })
 
-// router.delete("/account", async (req,res) => {
+// router.delete("/user/:userId", async (req,res) => {
 //   const bookingsId = req.params.bookingId
 //   await Bookings.destroy({where: {id:bookingsId}});
 //   res.json("Réservation effacée")
 // })
 
-// router.delete("/account/:bookingId", async (req,res) => {
+// router.delete("/user/:userId/:bookingId", async (req,res) => {
 //   const bookingsId = req.params.bookingId
 //   await Bookings.destroy({where: {id:bookingsId}});
 //   res.json("Réservation effacée")
