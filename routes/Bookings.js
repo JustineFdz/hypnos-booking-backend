@@ -17,7 +17,7 @@ router.get('/user/:userId', async (req, res) => {
 router.post("/hotel/:hotelId/room/:roomId", async (req, res) => {
   const roomId = req.params.roomId
   const hotelId = req.params.hotelId
-  const { checkIn, checkOut,  userId } = req.body;
+  const { checkIn, checkOut,  userId} = req.body;
   const booking = await Bookings.create({ checkIn, checkOut, HotelId : hotelId, RoomId: roomId, UserId: userId });
   //
 
